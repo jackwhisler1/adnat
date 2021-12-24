@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def new
@@ -8,16 +8,19 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password],
-      password_confirmation: params[:password_confirmation]
-    )
+    @user = User.new(user_params)
     if @user.save
-      render json: { message: "User created successfully" }, status: :created
+      session[:user_id] = @user.id
+      redirect_to '/organizations'
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render :new
     end
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
+
 end

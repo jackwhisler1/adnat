@@ -1,18 +1,15 @@
 class SessionsController < ApplicationController
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      jwt = JWT.encode(
-        {
-          user_id: user.id, # the data to encode
-          exp: 24.hours.from_now.to_i # the expiration time
-        },
-        Rails.application.credentials.fetch(:secret_key_base), # the secret key
-        "HS256" # the encryption algorithm
-      )
-      render json: { jwt: jwt, email: user.email, user_id: user.id }, status: :created
+    @user = User.find_by(email: params[:email])
+    #authenticate user credentials
+    if !!@user && @user.authenticate(params[:password])
+      #set session and redirect on success
+      session[:user_id] = @user.id
+      redirect_to user_path
     else
-      render json: {}, status: :unauthorized
+      #error message on fail
+      message = "Something went wrong. Make sure email and password are correct."
+      redirect_to login_path, notice: message
     end
   end
 end
