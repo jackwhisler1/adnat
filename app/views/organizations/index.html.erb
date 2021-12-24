@@ -1,1 +1,8 @@
-
+<h1>Adnat</h1>
+<% if !Current.user.nil? %>
+  <p>Signed in as: <%= Current.user.name %></p>
+<% end %>
+<%= @organizations.each do |o| %>
+  <p><%= o.name%></p>
+  <p><%= o.hourly_rate%></p>
+<% end %>

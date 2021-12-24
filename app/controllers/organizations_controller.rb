@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
   def index
-    @greeting = "hello  neighbor"
+    @organizations = Organization.all
   end
 end
