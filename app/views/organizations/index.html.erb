@@ -2,10 +2,15 @@
 <% if !Current.user.nil? %>
   <p>Signed in as: <%= Current.user.name %></p>
 <% end %>
-<% @organizations.each do |o| %>
-  <p><%= o.name%></p>
-  <p><%= o.hourly_rate%></p>
-  <% unless Current.user.organizations.find{|org| org.id == o.id} %>
-    <%=button_to "Join", user_orgs_path(user_id: Current.user.id, organization_id: o.id), method: :post %>
+<h2>Organizations</h2>
+<ul>
+  <% @organizations.each do |o| %>
+    <li> <%= o.name%>
+      <%= button_to "Edit", edit_organization_path(id: o.id), method: :get %>
+      <% unless Current.user.organizations.find{|org| org.id == o.id} %>
+        <%= button_to "Join", user_orgs_path(user_id: Current.user.id, organization_id: o.id), method: :post %>
+      <% end %>
+    </li>
   <% end %>
-<% end %>
+</ul>
+<h2>Create Organization</h2>

@@ -43,3 +43,4 @@ gem 'http'
 # JWT
 gem 'jwt'
 
+gem 'jquery-rails'

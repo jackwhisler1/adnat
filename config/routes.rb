@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   get 'welcome', to: 'welcome#index'
   root to: 'welcome#index'
   
-  resources :organizations
+  # organizations routes
+  resources :organizations, only: [:index, :edit, :update, :create, :destroy]
+  # get 'organizations/:id/edit' => 'organizations#edit'
+  # patch 'organizations/:id' => 'organizations#update'
+
+
   # Users routes
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
   get "/sign_up" => "users#new"
