@@ -1,9 +1,9 @@
 <h2> Edit Details for <%= @organization.name %> </h2>
-<%=form_with(model: @organization) do |f| %>
+<%=form_with(model: @organization, method: :patch) do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :hourly_rate %>
   <%= f.number_field :hourly_rate, step: :any %>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= button_to "Update", organizations_path(name: :name, hourly_rate: :hourly_rate), method: :patch %>
+  <%= button_to "Update", edit_organization_path(name: :name, hourly_rate: :hourly_rate), method: :patch %>
 <% end %>

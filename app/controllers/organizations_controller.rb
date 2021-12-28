@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  protect_from_forgery with: :null_session
+  skip_before_action :verify_authenticity_token
 
   def index
     @organizations = Organization.all
@@ -10,8 +10,15 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization = Organization.find(params[:id])
-    @organization.update(name: params[:name], hourly_rate: params[:hourly_rate])
-    redirect_to '/organizations'
+    @organization.name = params[:name] || @organization.name
+    @organization.hourly_rate = params[:hourly_rate] || @organization.hourly_rate
+    if @organization.save
+      redirect_to '/organizations'
+    else
+      render :edit
+    end
+    # @organization.update(name: params[:name], hourly_rate: params[:hourly_rate])
+    # redirect_to '/organizations'
   end
 
   def new

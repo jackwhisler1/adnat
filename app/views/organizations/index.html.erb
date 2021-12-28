@@ -1,6 +1,7 @@
 <h1>Adnat</h1>
 <% if !Current.user.nil? %>
-  <p>Signed in as: <%= Current.user.name %></p>
+  <p>Signed in as: <%= Current.user.name %> </p>
+  <%= link_to "Logout", logout_path, method: :delete %>
 <% end %>
 <h2>Organizations</h2>
 <ul>
