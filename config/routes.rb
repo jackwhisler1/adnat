@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   post "/sign_in" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
+  # UserOrgs routes
+  post "/user_orgs" => "user_orgs#create"
+
 end

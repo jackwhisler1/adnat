@@ -2,7 +2,10 @@
 <% if !Current.user.nil? %>
   <p>Signed in as: <%= Current.user.name %></p>
 <% end %>
-<%= @organizations.each do |o| %>
+<% @organizations.each do |o| %>
   <p><%= o.name%></p>
   <p><%= o.hourly_rate%></p>
+  <% unless Current.user.organizations.find{|org| org.id == o.id} %>
+    <%=button_to "Join", user_orgs_path(user_id: Current.user.id, organization_id: o.id), method: :post %>
+  <% end %>
 <% end %>
