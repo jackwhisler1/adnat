@@ -10,8 +10,9 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization = Organization.find(params[:id])
-    @organization.name = params[:name] || @organization.name
-    @organization.hourly_rate = params[:hourly_rate] || @organization.hourly_rate
+    p @organization
+    @organization.name = params[:organization][:name] || @organization.name
+    @organization.hourly_rate = params[:organization][:hourly_rate] || @organization.hourly_rate
     if @organization.save
       redirect_to '/organizations'
     else
