@@ -20,8 +20,12 @@
       <% if o.start %>
         <td><%= o.end.strftime("%H:%M %p")%></td>
       <%end%>
+      <td><%= o.breaks.ids%></td>
       <% if o.start %>
         <td><%= o.hours_worked%></td>
+      <%end%>
+      <% if o.organization.hourly_rate %>
+        <td><%= o.cost%></td>
       <%end%>
       <td><%= button_to "Edit", edit_shift_path(id: o.id), method: :get %></td>
     </tr>

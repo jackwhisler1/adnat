@@ -26,5 +26,9 @@ class Shift < ApplicationRecord
     start.strftime("%l:%M %p")
   end
 
+  def cost
+    (hours_worked * self.organization.hourly_rate).round(2)
+  end
+
 
 end
