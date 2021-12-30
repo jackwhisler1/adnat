@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :organizations, only: [:index, :show, :edit, :update, :create, :destroy]
   # get 'organizations/:id/edit' => 'organizations#edit'
   # patch 'organizations/:id' => 'organizations#update'
-
+  post 'organizations/:id' => 'shifts#create'
 
   # Users routes
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy]

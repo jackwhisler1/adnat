@@ -25,9 +25,18 @@
         <td><%= o.hours_worked%></td>
       <%end%>
       <% if o.organization.hourly_rate %>
-        <td><%= o.cost%></td>
+        <td>$<%= o.cost%></td>
       <%end%>
       <td><%= button_to "Edit", edit_shift_path(id: o.id), method: :get %></td>
     </tr>
   <% end %>
 </table>
+<h2>Create Shift</h2>
+<%=form_with(method: :post) do |f| %>
+  Employee: <%=  f.label Current.user.name %><br>
+  Shift date: <%= f.date_field :date, value: form_date(@shift) %><br>
+  Start time: <%= f.time_field :start_time, value: form_start_time(@shift) %><br>
+  End time: <%= f.time_field :end_time, value: form_end_time(@shift) %><br>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+  <%= button_to "Create Shift", shifts_path(user_id: Current.user.id, organization_id: @organization.id, start: :start, end: :end), method: :post %>
+<% end %>

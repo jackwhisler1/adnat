@@ -19,6 +19,19 @@ class ShiftsController < ApplicationController
     end
   end
 
+  def new
+    @shift = Shift.new
+  end
+
+  def create
+    @shift = Shift.new(user_id: params[:user_id], organization_id: params[:organization_id], start: params[:start], end: params[:end])
+    if @shift.save
+      redirect_to  organization_path(id: @shift.organization_id)
+    else
+      redirect_to organization_path
+    end
+  end
+
   def destroy
   end
 end

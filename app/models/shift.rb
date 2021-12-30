@@ -15,19 +15,27 @@ class Shift < ApplicationRecord
   end
 
   def hours_worked
-    ((self[:end] - start)/3600).round(1)
+    if self[:end]
+      ((self[:end] - start)/3600).round(1)
+    end
   end
 
   def display_date
-    start.strftime("%m/%d/%Y")
+    if start
+      start.strftime("%m/%d/%Y")
+    end
   end
 
   def display_time
-    start.strftime("%l:%M %p")
+    if start
+      start.strftime("%l:%M %p")
+    end
   end
 
   def cost
-    (hours_worked * self.organization.hourly_rate).round(2)
+    if hours_worked
+      (hours_worked * self.organization.hourly_rate).round(2)
+    end
   end
 
 
