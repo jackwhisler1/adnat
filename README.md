@@ -29,4 +29,8 @@ I also am working on separating the date from the time in the display table.
 
 Overall this was a great learning process for me and I gained a lot of quality tools to work with Rails.
 
+## Deploy
+
+To work with this repo, clone the main branch to your local machine and run server on localhost:3000.
+
 # adnat
