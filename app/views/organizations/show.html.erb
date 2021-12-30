@@ -1,1 +1,19 @@
-<h2> <%= @organization.name %> Show Page </h2>
+<h1> <%= @organization.name %> </h1>
+<h3>Shifts</h3>
+<table>
+  <tr>
+    <th>Employee name</th>
+    <th>Shift date</th>
+    <th>Clock in</th>
+    <th>Clock out</th>
+    <th>Break length(minutes)</th>
+    <th>Hours worked</th>
+    <th>Shift cost</th>
+  </tr>
+  <% @organization.shifts.each do |o| %>
+    <tr>
+      <td><%= o.user.name%></td>
+      <td><%= button_to "Edit", edit_shift_path(id: o.id), method: :get %></td>
+    </tr>
+  <% end %>
+</table>

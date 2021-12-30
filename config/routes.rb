@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'shifts/edit'
+  get 'shifts/update'
+  get 'shifts/destroy'
   get 'welcome', to: 'welcome#index'
   root to: 'welcome#index'
   
@@ -21,5 +24,8 @@ Rails.application.routes.draw do
 
   # UserOrgs routes
   post "/user_orgs" => "user_orgs#create"
+
+  # Shifts routes
+  resources :shifts
 
 end
