@@ -13,7 +13,7 @@
   <% @organization.shifts.each do |o| %>
     <tr>
       <td><%= o.user.name%></td>
-      <td><%= o.start.to_s.to_date%></td>
+      <td><%= o.display_date%></td>
       <% if o.start %>
         <td><%= o.start.strftime("%H:%M %p")%></td>
       <%end%>

@@ -2,9 +2,9 @@
 <h3> Edit Shift</h3>
 <%=form_with(model: @shift, method: :patch) do |f| %>
   Employee: <%=  f.label @shift.user.name %><br>
-  Shift date: <%= f.date_field :start %><br>
-  Start time: <%= f.time_field :start %><br>
-  End time: <%= f.time_field :end %><br>
+  Shift date: <%= f.date_field :date, value: form_date(@shift) %><br>
+  Start time: <%= f.time_field :start_time, value: form_start_time(@shift) %><br>
+  End time: <%= f.time_field :end_time, value: form_end_time(@shift) %><br>
   <% @shift.breaks.each do |b| %>
     Break length (minutes): <%= b.number_field b.duration %><br>
   <% end %>
