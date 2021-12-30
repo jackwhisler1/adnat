@@ -8,6 +8,10 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
   end
 
+  def show
+    @organization = Organization.find(params[:id])
+  end
+
   def update
     @organization = Organization.find(params[:id])
     p @organization

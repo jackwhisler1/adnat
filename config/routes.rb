@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   
   # organizations routes
-  resources :organizations, only: [:index, :edit, :update, :create, :destroy]
+  resources :organizations, only: [:index, :show, :edit, :update, :create, :destroy]
   # get 'organizations/:id/edit' => 'organizations#edit'
   # patch 'organizations/:id' => 'organizations#update'
 

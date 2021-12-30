@@ -54,4 +54,46 @@
 #   },
 # ])
 
-# Create shifts, 
+# Create shifts
+shifts = Shift.create([
+  {
+    "user_id": 6,
+    "organization_id": 1  
+  },
+  {
+    "user_id": 6,
+    "organization_id": 2  
+  },
+  {
+    "user_id": 2,
+    "organization_id": 1  
+  },
+  {
+    "user_id": 3,
+    "organization_id": 4  
+  },
+  {
+    "user_id": 4,
+    "organization_id": 4 
+  },
+  {
+    "user_id": 5,
+    "organization_id": 1  
+  },
+  {
+    "user_id": 9,
+    "organization_id": 2  
+  },
+  {
+    "user_id": 10,
+    "organization_id": 2  
+  },
+  {
+    "user_id": 10,
+    "organization_id": 11
+  },
+  {
+    "user_id": 11,
+    "organization_id": 3  
+  }
+])
