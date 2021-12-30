@@ -13,6 +13,11 @@
   <% @organization.shifts.each do |o| %>
     <tr>
       <td><%= o.user.name%></td>
+      <td><%= o.start.to_s.to_date%></td>
+      <% if o.start %>
+        <td><%= o.start.strftime("%H:%M %p")%></td>
+      <%end%>
+      <td><%= o.end%></td>
       <td><%= button_to "Edit", edit_shift_path(id: o.id), method: :get %></td>
     </tr>
   <% end %>
