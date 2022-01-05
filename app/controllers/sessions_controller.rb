@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if !!@user && @user.authenticate(params[:password])
       #set session and redirect on success
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to organizations_path
     else
       #error message on fail
       message = "Something went wrong. Make sure email and password are correct."

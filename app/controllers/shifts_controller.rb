@@ -24,7 +24,7 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    @shift = Shift.new(user_id: params[:user_id], organization_id: params[:organization_id], start: params[:start], end: params[:end])
+    @shift = Shift.new(user_id: params[:user_id], organization_id: 3, start: params[:start_time], end: params[:end_time])
     if @shift.save
       redirect_to  organization_path(id: @shift.organization_id)
     else
@@ -34,4 +34,10 @@ class ShiftsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+    def shift_params
+      params.require(:shift).permit(:user_id, :organization_id, :date, :start_time, :end_time)
+    end
 end
