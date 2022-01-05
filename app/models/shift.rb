@@ -14,9 +14,17 @@ class Shift < ApplicationRecord
     self[:end] = date + " " + end_time
   end
 
+  def sum_breaks
+    sum = 0
+    self.breaks.each do |employee_break| 
+      sum += employee_break.duration
+    end
+    sum
+  end
+
   def hours_worked
     if self[:end]
-      ((self[:end] - start)/3600).round(1)
+      (((self[:end] - start)/3600) - (self.sum_breaks / 60.0)).round(2)
     end
   end
 

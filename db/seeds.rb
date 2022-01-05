@@ -54,46 +54,73 @@
 #   },
 # ])
 
-# Create shifts
-shifts = Shift.create([
+# # Create shifts
+# shifts = Shift.create([
+#   {
+#     "user_id": 6,
+#     "organization_id": 1  
+#   },
+#   {
+#     "user_id": 6,
+#     "organization_id": 2  
+#   },
+#   {
+#     "user_id": 2,
+#     "organization_id": 1  
+#   },
+#   {
+#     "user_id": 3,
+#     "organization_id": 4  
+#   },
+#   {
+#     "user_id": 4,
+#     "organization_id": 4 
+#   },
+#   {
+#     "user_id": 5,
+#     "organization_id": 1  
+#   },
+#   {
+#     "user_id": 9,
+#     "organization_id": 2  
+#   },
+#   {
+#     "user_id": 10,
+#     "organization_id": 2  
+#   },
+#   {
+#     "user_id": 10,
+#     "organization_id": 11
+#   },
+#   {
+#     "user_id": 11,
+#     "organization_id": 3  
+#   }
+# ])
+
+breaks = Break.create([
   {
-    "user_id": 6,
-    "organization_id": 1  
+    shift_id: 1,
+    duration: 10
   },
   {
-    "user_id": 6,
-    "organization_id": 2  
+    shift_id: 3,
+    duration: 10
   },
   {
-    "user_id": 2,
-    "organization_id": 1  
+    shift_id: 3,
+    duration: 20
   },
   {
-    "user_id": 3,
-    "organization_id": 4  
+    shift_id: 6,
+    duration: 60
   },
   {
-    "user_id": 4,
-    "organization_id": 4 
+    shift_id: 6,
+    duration: 10
   },
   {
-    "user_id": 5,
-    "organization_id": 1  
+    shift_id: 9,
+    duration: 25
   },
-  {
-    "user_id": 9,
-    "organization_id": 2  
-  },
-  {
-    "user_id": 10,
-    "organization_id": 2  
-  },
-  {
-    "user_id": 10,
-    "organization_id": 11
-  },
-  {
-    "user_id": 11,
-    "organization_id": 3  
-  }
 ])
