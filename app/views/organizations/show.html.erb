@@ -1,3 +1,4 @@
+<%= button_to "Home", '/organizations' %> <br>
 <h1> <%= @organization.name %> </h1>
 <h3>Shifts</h3>
 <% if flash[:shift_error] %>
@@ -44,4 +45,11 @@
   <%= hidden_field_tag :organization_id, @organization.id %><br>
   <%= hidden_field_tag :user_id, Current.user.id%><br>
   <%= button_to "Create", organization_path, method: :post %>
+<% end %>
+<!--
+<%= form_with method: :post do |f| %>
+<%= f.date_select :start_date %> <br>
+<%= f.text_field :start_time %> <br>
+<%= f.text_field :end_time %> <br>
+<%= button_to "Create", organization_path, method: :post %>
 <% end %>

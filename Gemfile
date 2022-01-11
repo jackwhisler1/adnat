@@ -44,3 +44,5 @@ gem 'http'
 gem 'jwt'
 
 gem 'jquery-rails'
+
+gem "time_splitter"

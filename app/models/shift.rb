@@ -1,8 +1,14 @@
 class Shift < ApplicationRecord
+  extend TimeSplitter::Accessors
+  split_accessor :start
+  split_accessor :end
+  
   attr_accessor :date, :start_time, :end_time, :overnight
   belongs_to :user
   belongs_to :organization
   has_many :breaks
+
+
 
   scope :newest, -> {order(start: :desc)}
 
