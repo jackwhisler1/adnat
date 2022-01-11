@@ -35,11 +35,13 @@
   <% end %>
 </table>
 <h2>Create Shift</h2>
-<%=form_with(model: @shift, method: :post) do |f| %>
+<%=form_with method: :post do |f| %>
   Employee: <%=  f.label Current.user.name %><br>
   Shift date: <%= f.date_field :date, value: form_date(@shift) %><br>
   Start time: <%= f.time_field :start_time, value: form_start_time(@shift) %><br>
   End time: <%= f.time_field :end_time, value: form_end_time(@shift) %><br>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
-  <%= button_to "Create", organization_path(user_id: Current.user.id, organization_id: @organization.id, start: :start, end: :end), method: :post %>
+  <%= hidden_field_tag :organization_id, @organization.id %><br>
+  <%= hidden_field_tag :user_id, Current.user.id%><br>
+  <%= button_to "Create", organization_path, method: :post %>
 <% end %>
